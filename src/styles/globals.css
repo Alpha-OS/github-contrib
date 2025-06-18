@@ -58,16 +58,15 @@ tbody{
   gap:30px
   
 }
-tbody td span[aria-hidden="true"] {
-  display: none;
-}
 
 tbody tr {
   padding-top:10px;
   display:flex;
   gap:10px;
 }
-
+tbody tr span.sr-only{
+  display:none;
+}
 
 tbody td span.sr-only {
   width:50px;
@@ -129,3 +128,6 @@ ul{
   background-color: #216e39;
 }
 
+tbody .ContributionCalendar-label{
+  margin-right:96px;
+}
