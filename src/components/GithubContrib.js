@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import "../styles/globals.css";
-const GitHubContributions = ({username}) => {
+const GitHubContributions = ({username,showorg}) => {
   const [svg, setSvg] = useState("");
 
   useEffect(() => {

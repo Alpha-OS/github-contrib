@@ -62,6 +62,18 @@ tbody td span[aria-hidden="true"] {
   display: none;
 }
 
+tbody tr {
+  padding-top:10px;
+  display:flex;
+  gap:10px;
+}
+
+
+tbody td span.sr-only {
+  width:50px;
+}
+ 
+
 thead td span.sr-only {
   display: none;
 }
