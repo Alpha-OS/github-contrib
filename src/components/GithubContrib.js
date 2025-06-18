@@ -22,7 +22,7 @@ const GitHubContributions = ({username}) => {
     )
   }
   return (
-    <div>
+    <div className='p-10'>
       <div dangerouslySetInnerHTML={{ __html: svg }}  />
     </div>
   );
