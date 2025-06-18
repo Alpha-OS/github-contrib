@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-
+import "../styles/globals.css";
 const GitHubContributions = ({username}) => {
   const [svg, setSvg] = useState("");
 
