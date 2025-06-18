@@ -9,13 +9,22 @@ const GitHubContributions = ({username}) => {
     const fetchData = async () => {
       const res = await fetch(`/api/github-contributions?username=${username}`);
       const text = await res.text();
+      console.log(text);
       setSvg(text);
     };
     fetchData();
   }, [username]);
 
+
+  if(svg === ""){
+    return(
+      <div>Loading....</div>
+    )
+  }
   return (
-    <div dangerouslySetInnerHTML={{ __html: svg || '<p>Loading...</p>' }} />
+    <div>
+      <div dangerouslySetInnerHTML={{ __html: svg }}  />
+    </div>
   );
 };
 

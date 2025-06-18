@@ -1,18 +1,19 @@
-import { NextResponse } from 'next/server';
+export default async function handler(req, res) {
+  const { username } = req.query;
 
-export async function GET(request) {
-  const { searchParams } = new URL(request.url);
-  const username = searchParams.get('username');
+  if (!username || typeof username !== 'string') {
+    return res.status(400).json({ error: 'Username is required' });
+  }
 
-  if (!username) return NextResponse.json({ error: 'No username provided' }, { status: 400 });
+  try {
+    const response = await fetch(`https://github.com/users/${username}/contributions`);
+    const svg = await response.text();
 
-  const res = await fetch(`https://github.com/users/${username}/contributions`);
-  const svg = await res.text();
-
-  return new NextResponse(svg, {
-    headers: {
-      'Content-Type': 'image/svg+xml',
-    },
-  });
+    res.setHeader('Content-Type', 'text/json');
+    res.status(200).send(svg);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Failed to fetch contributions' });
+  }
 }
 
