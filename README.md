@@ -1,40 +1,118 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# 🟩 GitHub Contributions Viewer (Next.js + Tailwind CSS)
 
-## Getting Started
+This is a simple GitHub Contributions Viewer built with **Next.js** and **Tailwind CSS**. It fetches and displays a GitHub user's contribution graph by scraping the raw contribution calendar HTML and rendering it on your site.
 
-First, run the development server:
+---
+
+## 🎯 What You’re Achieving
+
+You are building a **fully client-rendered** app that:
+
+- Takes a GitHub username via URL query (e.g. `?username=vagabond-0`)
+- Fetches the user’s GitHub contribution graph (HTML table embedded in their profile)
+- Parses and injects it directly into your UI
+- Styles the table with Tailwind CSS to make it visually appealing
+
+This can be used for:
+
+- Developer portfolios
+- GitHub visualizers
+- Open-source dashboards
+
+---
+
+## 🛠 Tech Stack
+
+- **Next.js** – React framework
+- **Tailwind CSS** – Utility-first CSS framework
+- **HTML Parsing** – Built-in fetch and basic parsing (no Axios or Cheerio)
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/your-username/github-contrib.git
+cd github-contrib
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Run the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 4. Open the application
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Visit:
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+```
+http://localhost:3000/?username=YOUR_GITHUB_USERNAME
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+Example:
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+http://localhost:3000/?username=vagabond-0
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🧠 How It Works
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+1. **Client loads** the app with a GitHub username from the query.
+2. The `useEffect()` hook fetches the raw GitHub contribution page:
+   ```
+   https://github.com/users/USERNAME/contributions
+   ```
+3. The HTML is extracted and rendered using `dangerouslySetInnerHTML`.
+4. Tailwind styles are applied to make it responsive and neat.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🖼️ Screenshot
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+> Insert a screenshot of your app displaying a contribution graph here.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+---
+
+## 📁 Folder Structure
+
+```
+/pages
+  └── index.js            → Main page with fetch and render logic
+/public
+/styles
+  └── globals.css         → Tailwind CSS global styles
+/tailwind.config.js       → Tailwind config
+```
+
+---
+
+## ✅ Customization Ideas
+
+- Add dark mode or contribution color themes
+- Add a text input to type username instead of URL query
+- Export contribution calendar as PNG/SVG
+- Add hover effects to squares
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+## ✨ Credits
+
+Inspired by GitHub's contribution calendar and built with ❤️ using Next.js and Tailwind CSS.
+
